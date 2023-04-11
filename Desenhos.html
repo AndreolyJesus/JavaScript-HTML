@@ -1,19 +1,24 @@
-<canvas width="600" heigth="400" ></canvas>
+<canvas width="600" heigth="400" ></canvas>     
 
 <script>
-
+                            //--funcões ultilizadas: chamadas de api ou bibliotecas
 var tela = document.querySelector("canvas");
-var pincel = tela.getContext('2d');
+var pincel = tela.getContext('2d');     //<--pincel para escrever na tela e o tipo dele
 
-pincel.fillStyle = 'white';
-pincel.fillRect(0,0,600,400);
 
-pincel.fillStyle = 'green';
-pincel.fillRect(0,0,200,400);
+pincel.fillStyle = 'green';         //<--style=cor
+pincel.fillRect(0,0,50,50);         //<--dimensoes da tela
+pincel.fillStroker = 'black';       //<--bordas e cor
+pincel.strokeRect(0,0,50,50);       //--dimensoes das bordas
 
-pincel.fillStyle = 'red';
-pincel.fillRect(400,0,200,400);
+pincel.fillRect(50,0,50,50); 
+pincel.strokeRect(50,0,50,50);
 
+pincel.fillRect(100,0,50,50); 
+pincel.strokeRect(100,0,50,50);
+
+
+/*
 pincel.fillStyle = 'yellow';
 pincel.beginPath();     //<--caminho
 pincel.moveTo(300,200);
@@ -25,4 +30,5 @@ pincel.fillStyle = 'blue';
 pincel.beginPath();
 pincel.arc(300,200,50,0,2*3,14);
 pincel.fill();
+*/
 </script>

@@ -1,0 +1,48 @@
+
+
+<canvas width ="800" height ="400" ></canvas>     
+
+<script>
+                            
+var tela = document.querySelector("canvas");        //<---inicializar tela 
+var pincel = tela.getContext('2d'); 
+var raio = 10;
+
+pincel.fillStyle = 'lightgrey';     //<--definição da cor da tela
+pincel.fillRect(0, 0, 800, 400);       //<--dimensoes tela
+
+
+
+function desenhaCirculo (x, y, raio, cor) {
+
+pincel.fillStyle = cor ;                         //<--definir cor
+pincel.beginPath();                             //<--para desenhar
+pincel.arc( x , y , raio , 0 , 2 * Math.PI);           //<--valor de pin 3.14
+pincel.fill();                              //<--preenchimento de cor
+
+}
+
+function limpaTela() {
+
+    pincel.clearRect(0, 0, 800, 400);
+
+}
+function desenhaAlvo(x, y) {    //<--função definindo alvo
+
+    desenhaCirculo(x, y, raio+20, 'blue');
+    desenhaCirculo(x, y, raio+10, 'yellow');
+    desenhaCirculo(x, y, raio, 'red');
+}
+function sorteiaPosicao(maximo) {     //<--função criado para gerar posição aleatoria do alvo
+
+    return Math.floor(Math.random() * maximo);//<--arredonda valor
+}
+function atualizaTela() {
+    limpaTela();
+    var xAleatorio = sorteiaPosicao(600);
+    var yAleatorio = sorteiaPosicao(400);
+    desenhaAlvo(xAleatorio, yAleatorio);//<--chamando a funcao
+}
+setInterval(atualizaTela, 500);
+
+</script>

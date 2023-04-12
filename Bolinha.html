@@ -1,0 +1,53 @@
+
+
+<canvas width ="800" height ="400" ></canvas>     
+
+<script>
+                            
+var tela = document.querySelector("canvas");        //<---inicializar tela 
+var pincel = tela.getContext('2d'); 
+
+pincel.fillStyle = 'lightgrey';     //<--definição da cor da tela
+pincel.fillRect(0, 0, 800, 400);       //<--dimensoes tela
+
+
+
+function desenhaCirculo (x, y, raio) {
+
+pincel.fillStyle = 'blue';                         //<--definir cor
+pincel.beginPath();                             //<--para desenhar
+pincel.arc( x , y , raio , 0 , 2 * Math.PI);           //<--valor de pin 3.14
+pincel.fill();                              //<--preenchimento de cor
+
+}
+
+function limpaTela() {
+
+    pincel.clearRect(0, 0, 800, 400);
+
+}
+
+var x = 20; //<--importante que seja declarado fora da função atualizaTela
+function atualizaTela() {
+
+    limpaTela();    //<--pra nao ficar bolinha anterior
+    desenhaCirculo(x , 20, 10);       //<--chamado essa função para poder ser executado na tela a funcionalidade da função desenha circulo
+    x++;
+}
+
+setInterval(atualizaTela, 10);        //<--passando a fução e quantidade de segundos de execução nesse temporizador setInterval
+
+
+
+
+//exibeMensagemNoConsole;     //<--para funcionar a execução da função
+
+/*
+for(var x = 20; x < 600; x++) {
+    
+    limpaTela();
+    desenhaCirculo(x,20,10);
+}
+*/
+</script>
+
